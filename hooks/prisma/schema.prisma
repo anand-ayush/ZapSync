@@ -45,7 +45,7 @@ model AvailableTrigger{
 model ZapRun{
     id            String   @id @default(uuid())
     zapId         String
-    metadata      Json
+    metadata      Json  
     zap           Zap      @relation(fields: [zapId], references: [id])
     zapRunoutbox  zapRunOutbox?
 }
@@ -55,6 +55,8 @@ model Action{
   zap       Zap               @relation(fields: [zapId], references: [id])
   actionId  String
   type      AvailableActions  @relation(fields: [actionId], references: [id])
+  sortingOrder Int            @default(0)
+
 }
 
 model AvailableActions{

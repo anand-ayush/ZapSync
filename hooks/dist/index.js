@@ -38,6 +38,9 @@ app.post("/hooks/catch/:userId/:zapId", (req, res) => __awaiter(void 0, void 0, 
             }
         });
     }));
+    res.json({
+        message: "Webhooks Received"
+    });
     // Push into A queue in  Kafka / Redis 
 }));
 app.listen(3000);
